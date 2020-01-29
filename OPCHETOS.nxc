@@ -1,0 +1,55 @@
+void girar(int velocidad, int delay, int direc, int aoa);
+void mover_tiempo(int delay, int velocidad, char sentido);
+
+task main(){
+mover_tiempo(10000, 100, 'd');
+}
+
+// sentido será d para delante a para atras
+
+void mover_tiempo(int delay, int velocidad, char sentido){
+if (sentido == 'd'){
+OnFwd(OUT_BC, velocidad);
+Wait(delay);
+}
+else{
+OnRev(OUT_BC, velocidad);
+Wait(delay);
+}
+
+}
+void girar(int velocidad, int delay, int direc, int aoa){
+
+     if (direc == 1){
+       if (aoa==1){
+       OnFwd(OUT_B, velocidad);
+       OnFwd(OUT_C, velocidad/2);
+
+
+       }
+       else{
+       OnRev(OUT_B, velocidad/2);
+       OnRev(OUT_C, velocidad);
+
+       }
+
+     if (direc == 0){
+      if (aoa==1){
+       OnFwd(OUT_B, velocidad/2);
+       OnFwd(OUT_C, velocidad);
+
+
+       }
+      else{
+       OnRev(OUT_B, velocidad);
+       OnRev(OUT_C, velocidad/2);
+
+       }
+       Wait(delay);
+       }
+
+}
+
+
+}
+
